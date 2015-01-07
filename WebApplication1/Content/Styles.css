@@ -1,0 +1,24 @@
+﻿
+body, input {
+	font: 1em sans-serif;
+}
+
+p > input {
+	border: 1px solid white;
+	-moz-transition: border 1s;
+	-o-transition: border 1s;
+	-webkit-transition: border 1s;
+	transition: border 1s;
+	border-radius: 2px;
+	padding: 4px;
+	cursor: pointer;
+}
+
+	p > input:focus {
+		border: 1px solid lightgray;
+		-moz-transition: border .2s;
+		-o-transition: border .2s;
+		-webkit-transition: border .2s;
+		transition: border .2s;
+		cursor: text;
+	}

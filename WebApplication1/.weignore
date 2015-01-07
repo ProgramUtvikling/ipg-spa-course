@@ -1,0 +1,4 @@
+﻿# For more examples: http://vswebessentials.com/goto/weignore
+
+# To ignore the file from being processed by Autoprefixer, use the word autoprefixer: 
+**/**.js	jscs

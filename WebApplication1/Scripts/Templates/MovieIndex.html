@@ -1,0 +1,21 @@
+﻿<div data-bind="withLookups: ['Data/Genres']">
+<div>
+	<h2>Movies</h2>
+	<table>
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Title</td>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: $data">
+			<tr>
+				<!--<td data-bind="text: id"></td>-->
+				<td data-bind="text: genre(id)"></td>
+				<td>
+					<a data-bind="attr: { href: '#/movie/' + id() }, text: title"></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

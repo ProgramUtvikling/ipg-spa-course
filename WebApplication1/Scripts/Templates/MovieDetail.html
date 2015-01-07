@@ -1,0 +1,19 @@
+﻿<div>
+	<h2>Movie details for "<!-- ko text: movie.title --><!-- /ko -->"</h2>
+	<p>
+		ID: <input type="text" data-bind="value: movie.id" />
+	</p>
+	<p>
+		Title: <input type="text" data-bind="textInput: movie.title" />
+	</p>
+	<p>
+		Production year: <input type="number" data-bind="value: movie.productionYear" />
+	</p>
+	<p>
+		Running Length: <input type="number" data-bind="value: movie.runningLength" />
+	</p>
+	<button data-bind="click: cancel">Cancel</button>
+	<button data-bind="click: save">Save</button>
+	<br/>
+	<a href="#/index">Back to index</a>
+</div>
