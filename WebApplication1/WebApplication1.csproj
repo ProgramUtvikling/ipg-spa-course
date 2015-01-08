@@ -92,9 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="build.js" />
     <Content Include="Content\Styles.css" />
     <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
     <Content Include="Index-opt.html" />
     <Content Include="Index.html" />
     <Content Include="Scripts\Components\Sample.js" />
@@ -127,7 +127,7 @@
     <Content Include="packages.config" />
     <Content Include=".weignore" />
     <Content Include="bower.json" />
-    <None Include="build.cmd" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\timdemo.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

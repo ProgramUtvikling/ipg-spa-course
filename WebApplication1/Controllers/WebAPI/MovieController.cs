@@ -52,10 +52,11 @@ namespace WebApplication1.Controllers.WebAPI
 		//{
 		//}
 
-		//// PUT: api/Movie/5
-		//public void Put(int id, [FromBody]string value)
-		//{
-		//}
+		// PUT: api/Movie/5
+		public void Put(int id, [FromBody]string value)
+		{
+			
+		}
 
 		//// DELETE: api/Movie/5
 		//public void Delete(int id)
