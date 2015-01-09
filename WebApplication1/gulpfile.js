@@ -29,7 +29,7 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
 	return rjs({
 		baseUrl: "Scripts/",
-		exclude: ["jquery", "knockout", "grapnel"],
+		exclude: ["grapnel"],
 		mainConfigFile: "Scripts/Main.js",
 		name: "Main",
 		inlineText: true,

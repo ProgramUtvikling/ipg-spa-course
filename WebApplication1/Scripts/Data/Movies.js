@@ -1,6 +1,14 @@
 ﻿define(["jquery", "knockout", "komapping", "MyKoUtils"], function ($, ko, komapping, myKoUtils) {
 	"use strict";
 
+	var Movie = function () {
+		this.id = ko.observable();
+		this.title = ko.observable();
+		this.productionYear = ko.observable();
+		this.runningLength = ko.observable();
+		this.vote = ko.observable();
+	};
+
 	var isLoaded = false;
 	var movies = ko.observableArray();
 
@@ -31,23 +39,17 @@
 	};
 
 	var getMovie = function (id) {
-		var movie = {
-			id: ko.observable(),
-			title: ko.observable("n/a"),
-			productionYear: ko.observable(),
-			runningLength: ko.observable(),
-			vote: ko.observable()
-		};
+		var deferred = $.Deferred();
 
 		$.ajax({
 			url: '/Api/Movie/' + id,
 			method: 'GET'
 		}).then(function (data) {
-			myKoUtils.mergeInto(data, movie);
-			//komapping.fromJS(data, {}, movie);
+			var movie = komapping.fromJS(data);
+			deferred.resolve(movie);
 		});
 
-		return movie;
+		return deferred.promise();
 	};
 
 	var updateMovie = function (movie) {
@@ -66,6 +68,7 @@
 	return {
 		getMovies: getMovies,
 		getMovie: getMovie,
-		updateMovie: updateMovie
+		updateMovie: updateMovie,
+		Movie: Movie
 	};
 });

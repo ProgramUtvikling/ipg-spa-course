@@ -1,19 +1,42 @@
 ﻿<div>
 	<h2>Movie details for "<!-- ko text: movie.title --><!-- /ko -->"</h2>
-	<p>
-		ID: <input type="text" data-bind="value: movie.id" />
-	</p>
-	<p>
-		Title: <input type="text" data-bind="textInput: movie.title" />
-	</p>
-	<p>
-		Production year: <input type="number" data-bind="value: movie.productionYear" />
-	</p>
-	<p>
-		Running Length: <input type="number" data-bind="value: movie.runningLength" />
-	</p>
-	<button data-bind="click: cancel">Cancel</button>
-	<button data-bind="click: save">Save</button>
-	<br/>
-	<a href="#/index">Back to index</a>
+
+	<!-- -->
+	<div data-bind="template: {name: isInEditMode()?'edit-template':'view-template', if: movie}">no template</div>
+
+	<script type="text/html" id="view-template">
+		<p>
+			ID: <span data-bind="text: movie.id" />
+		</p>
+		<p>
+			Title: <span data-bind="text: movie.title" />
+		</p>
+		<p>
+			Production year: <span data-bind="text: movie.productionYear" />
+		</p>
+		<p>
+			Running Length: <span data-bind="text: movie.runningLength" />
+		</p>
+		<button data-bind="click: edit">Edit</button>
+		<a href="#/index">Back to index</a>
+		<br />
+	</script>
+
+	<script type="text/html" id="edit-template">
+		<p>
+			ID: <span data-bind="value: movie.id" />
+		</p>
+		<p>
+			Title: <input type="text" data-bind="textInput: editMovie.title" />
+		</p>
+		<p>
+			Production year: <input type="number" data-bind="textInput: editMovie.productionYear" />
+		</p>
+		<p>
+			Running Length: <input type="number" data-bind="textInput: editMovie.runningLength" />
+		</p>
+		<button data-bind="click: cancel">Cancel</button>
+		<button data-bind="click: save">Save</button>
+		<br />
+	</script>
 </div>

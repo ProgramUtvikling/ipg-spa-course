@@ -53,9 +53,22 @@ namespace WebApplication1.Controllers.WebAPI
 		//}
 
 		// PUT: api/Movie/5
-		public void Put(int id, [FromBody]string value)
+		public async Task<IHttpActionResult> Put(int id, Movie movie)
 		{
-			
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+
+			if (id != movie.Id)
+			{
+				return BadRequest();
+			}
+
+			// await find movie
+			// await update movie
+
+			return StatusCode(HttpStatusCode.NoContent);
 		}
 
 		//// DELETE: api/Movie/5

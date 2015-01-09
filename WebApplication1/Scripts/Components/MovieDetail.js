@@ -1,4 +1,4 @@
-﻿define(["knockout", "MyKoUtils", "Data/Movies", "komapping"], function (ko, myKoUtils, movieSvc) {
+﻿define(["knockout", "MyKoUtils", "Data/Movies", "komapping"], function (ko, myKoUtils, movieSvc, komapping) {
 	"use strict";
 
 	var componentName = "MovieDetail";
@@ -6,14 +6,21 @@
 		viewModel: function (params) {
 
 			var isInEditMode = ko.observable(false);
-			var storedMovie = movieSvc.getMovie(params.id);
-			var editMovie = myKoUtils.copy(storedMovie);
+			var storedMovie = new movieSvc.Movie();
+			var editMovie = new movieSvc.Movie();
+
+			movieSvc.getMovie(params.id).then(function (data) {
+				myKoUtils.mergeInto(data, storedMovie);
+				myKoUtils.mergeInto(storedMovie, editMovie);
+			});
+
 
 			var model = {
 				movie: storedMovie,
-				//editMovie: editMovie,
+				editMovie: editMovie,
+				isInEditMode: isInEditMode,
 				edit: function () {
-					editMovie = myKoUtils.copy(storedMovie);
+					myKoUtils.mergeInto(storedMovie, editMovie);
 					isInEditMode(true);
 				},
 				save: function () {
