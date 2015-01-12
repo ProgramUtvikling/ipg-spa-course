@@ -7,6 +7,7 @@ Instructor playground for spa-course
 
 ##At the command promt, run:
 \> npm update<br/>
+\> npm install -g gulp<br/>
 \> npm install -g bower<br/>
 \> bower update
 
