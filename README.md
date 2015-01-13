@@ -14,6 +14,8 @@ Instructor playground for spa-course
 ##In VS:
 1. Install "Task Runner Explorer" in Tools>Extensions and Updates...
 2. Install "Web Essentials"
+3. Open the Package Manager Console, switch context to ClassLibrary1 and run the following:<br/>
+PM> update-database -StartUpProjectName WebApplication1 -ProjectName ClassLibrary1
 
 
 
